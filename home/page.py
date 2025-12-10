@@ -20,6 +20,10 @@ def show_home():
     st.subheader('Total de filmes cadastrados: ')
     st.write(movie_stats['total_movies'])
 
+    st.subheader('Quantidade de filmes por gênero: ')
+    for genre in movie_stats['movies_by_genre']:
+        st.write(f"{genre['genre__name']} : {genre['count']}")
+
     st.subheader('Total de avaliações cadastradas: ')
     st.write(movie_stats['total_reviews'])
     
