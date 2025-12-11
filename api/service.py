@@ -1,6 +1,7 @@
 import requests
 
-class Auth: 
+
+class Auth:
 
     def __init__(self):
         self.__base_url = 'https://lucasatmelo.pythonanywhere.com/api/v1/'
@@ -8,8 +9,8 @@ class Auth:
 
     def get_token(self, username, password):
         auth_payload = {
-            'username' : username,
-            'password' : password
+            'username': username,
+            'password': password
         }
 
         auth_response = requests.post(
@@ -18,4 +19,4 @@ class Auth:
         )
         if auth_response.status_code == 200:
             return auth_response.json()
-        return {'error' : f'Erro ao autenticar. Status code {auth_response.status_code}'}
+        return {'error': f'Erro ao autenticar. Status code {auth_response.status_code}'}

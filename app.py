@@ -10,17 +10,17 @@ from reviews.page import show_reviews
 def main():
     if 'token' not in st.session_state:
         show_login()
-    
+
     else:
         st.title('FlixApp')
         menu_option = st.sidebar.selectbox(
-        'Selecione uma opção: ',
-        ['Início', 'Gêneros', 'Atores/Atrizes', 'Filmes', 'Avaliações']
+            'Selecione uma opção: ',
+            ['Início', 'Gêneros', 'Atores/Atrizes', 'Filmes', 'Avaliações']
         )
 
         if menu_option == 'Início':
             show_home()
-        
+
         if menu_option == 'Gêneros':
             show_genres()
 

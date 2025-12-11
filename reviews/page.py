@@ -4,6 +4,7 @@ from reviews.service import ReviewService
 from movies.service import MovieService
 from st_aggrid import AgGrid
 
+
 def show_reviews():
     review_service = ReviewService()
     reviews = review_service.get_reviews()
@@ -17,7 +18,7 @@ def show_reviews():
         )
     else:
         st.warning('Nenhuma avaliação encontrada. ')
-    
+
     st.title('Cadastrar nova Avaliação')
 
     movie_service = MovieService()
@@ -35,7 +36,7 @@ def show_reviews():
 
     comment = st.text_area(label='Comentário')
 
-    if st.button('Cadastrar'): 
+    if st.button('Cadastrar'):
         new_review = review_service.create_review(
             movie=movie_titles[selected_movie_title],
             stars=stars,

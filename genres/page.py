@@ -3,6 +3,7 @@ import streamlit as st
 from st_aggrid import AgGrid
 from genres.service import GenreService
 
+
 def show_genres():
     genre_service = GenreService()
     genres = genre_service.get_genres()
@@ -18,7 +19,7 @@ def show_genres():
         )
     else:
         st.warning('Nenhum gênero encontrado!')
-    
+
     st.title('Cadastrar novo Gênero')
     name = st.text_input('Nome do Gênero')
 
@@ -28,4 +29,3 @@ def show_genres():
             st.rerun()
         else:
             st.error('Erro ao cadastrar. Verifique os campos!')
-

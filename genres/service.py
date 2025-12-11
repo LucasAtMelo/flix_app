@@ -1,5 +1,6 @@
-import streamlit as st 
+import streamlit as st
 from genres.repository import GenresRepository
+
 
 class GenreService:
     def __init__(self):

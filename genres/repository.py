@@ -2,13 +2,14 @@ import requests
 import streamlit as st
 from login.service import logout
 
-class GenresRepository: 
+
+class GenresRepository:
 
     def __init__(self):
         self.__base_url = 'https://lucasatmelo.pythonanywhere.com/api/v1/'
         self.__genres_url = f'{self.__base_url}genres/'
         self.__headers = {
-            'Authorization' : f'Bearer {st.session_state.token}'
+            'Authorization': f'Bearer {st.session_state.token}'
         }
 
     def get_genres(self):
@@ -20,7 +21,7 @@ class GenresRepository:
             return response.json()
         if response.status_code == 401:
             logout()
-            return None 
+            return None
         raise Exception(f'Error ao obter dados da API status code: {response.status_code}')
 
     def create_genre(self, genre):
@@ -29,7 +30,7 @@ class GenresRepository:
             headers=self.__headers,
             data=genre,
         )
-        if response.status_code == 201: 
+        if response.status_code == 201:
             return response.json()
         if response.status_code == 401:
             logout()
